@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    > The count value for counter1 is private to the function counterMaker, while the count value for counter2 is global to the program.
+
   2. Which of the two uses a closure? How can you tell?
-  
+    > counter1 contains a closure, where the function counter() is a function inside an environment where it uses the count variable that's just outside it.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     > You can use counter1 when you need to increase a count without needing to reference the previous count -- counter1 only increases.
+     > counter2 lets you also access the count separately from the counter function, so it would be better for logging the progression of the score.
 */
 
 // counter1 code
@@ -62,8 +66,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()*3);
 }
 
 
@@ -81,9 +85,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
-}
+function finalScore(inningCb, numInnings){
+  let totalScore = [];
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for (let i=0; i < numInnings; i++){
+      homeScore += inningcb;
+      awayScore += inningcb;
+    };
+
+    return {`'Home': ${homeScore}`,`'Away': ${awayScore}`}
+  }
+
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
